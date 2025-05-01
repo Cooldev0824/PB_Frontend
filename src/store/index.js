@@ -1,8 +1,7 @@
 import { createStore } from 'vuex';
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL;
-
+console.log(import.meta.env.VITE_API_URL);
 const store = createStore({
   state: {
     proposals: [], // List of proposals
@@ -31,7 +30,7 @@ const store = createStore({
   actions: {
     async fetchProposals({ commit }) {
       try {
-        const response = await axios.get(`${API_URL}/proposals`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/proposals`);
         commit('setProposals', response.data);
       } catch (error) {
         console.error('Error fetching proposals:', error);
@@ -39,7 +38,7 @@ const store = createStore({
     },
     async createProposalID({ commit }, proposal) {
       try {
-        const response = await axios.post(`${API_URL}/proposalID`, proposal);
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/proposalID`, proposal);
         commit('addProposalID', response.data);
         return response.data; // Return the created proposal
       } catch (error) {
@@ -49,7 +48,7 @@ const store = createStore({
     },
     async updateProposal({ commit }, { id, content, background, pageSize }) {
       try {
-        const response = await fetch(`${API_URL}/proposals/${id}`, {
+        const response = await fetch(`${import.meta.env.VITE_import.meta.env.VITE_API_URL}/proposals/${id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -71,7 +70,7 @@ const store = createStore({
     },
     async deleteProposal({ commit }, id) {
       try {
-        await axios.delete(`${API_URL}/proposals/${id}`);
+        await axios.delete(`${import.meta.env.VITE_API_URL}/proposals/${id}`);
         commit('deleteProposal', id);
       } catch (error) {
         console.error('Error deleting proposal:', error);
@@ -79,7 +78,7 @@ const store = createStore({
     },
     async getProposal({ commit }, id) {
       try {
-        const response = await axios.get(`${API_URL}/proposals/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/proposals/${id}`);
         commit('setCurrentProposal', response.data);
         return response.data;
       } catch (error) {
