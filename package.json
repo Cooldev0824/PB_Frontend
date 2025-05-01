@@ -28,6 +28,7 @@
     "@mdi/font": "^7.4.47",
     "@vueuse/core": "^10.7.2",
     "axios": "^1.6.7",
+    "dotenv": "^16.5.0",
     "draggable-resizable-vue3": "^1.0.94-beta",
     "editorjs-text-alignment-blocktune": "^1.0.3",
     "html2pdf.js": "^0.10.3",

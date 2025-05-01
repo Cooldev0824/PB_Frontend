@@ -236,10 +236,10 @@ const createEditor = (blockId) => {
       image: {
         class: Image,
         config: {
-          endpoints: {
-            byFile: "http://localhost:8080/uploadFile",
-            byUrl: "http://localhost:8080/fetchUrl",
-          },
+          // endpoints: {
+          //   byFile: "http://localhost:8080/uploadFile",
+          //   byUrl: "http://localhost:8080/fetchUrl",
+          // },
         },
       },
       // Add the alignment tune tool
